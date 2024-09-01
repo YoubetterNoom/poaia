@@ -1,0 +1,230 @@
+@font-face {
+  font-family: 'Super Caramel';
+  src: url('Fonts/webfontkit-20240830-023204/super_caramel-webfont.woff2') format('woff2'),
+       url('Fonts/webfontkit-20240830-023204/super_caramel-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('Fonts/webfontkit-20240830-024201/cocogoose-pro-regular-trial-webfont.woff2') format('woff2'),
+       url('Fonts/webfontkit-20240830-024201/cocogoose-pro-regular-trial-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+body {
+  font-family: 'Super Caramel', sans-serif;
+  font-size: 2vw; 
+  margin: 0;
+  overflow: auto; 
+}
+
+.container, .second, .third {
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* This enables the parallax effect */
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  background-image: url(img/1.png);
+  background-position: 73% 25%; /* This will apply to all screen sizes */
+}
+
+.second {
+  background-image: url(img/2.png);
+  background-position: center;
+}
+
+.third {
+  background-image: url(img/3.png);
+  background-position: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-family: 'Super Caramel', sans-serif;
+  color: #ffffff;
+  font-size: 4vw; 
+  margin-bottom: 5vh; 
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000; 
+}
+
+h2 {
+  font-weight: 500;
+  font-family: 'Super Caramel', sans-serif;
+  color: #ffffff;
+  font-size: 4vw; 
+  margin-bottom: 5vh; 
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000; 
+}
+
+.blank {
+  width: 100%;
+  min-height: 5vh; 
+  background-color: rgb(221, 42, 42);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  z-index: 2;
+}
+
+.conveyor {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.conveyor-inner {
+  display: flex;
+  animation: scroll 8s linear infinite;
+  width: 200%;
+}
+
+.conveyor-inner span {
+  font-family: 'Cocogoose', sans-serif;
+  padding: 0 2vw; 
+  font-size: 1.5vw; 
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  transition: 0.3s ease-out;
+  backdrop-filter: blur(8px) brightness(1.2);
+  -webkit-backdrop-filter: blur(8px) brightness(1.2);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 16px;
+  z-index: 10;
+  border-top: 2px black solid;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 10px; 
+  flex: 1; 
+}
+
+.list li {
+  background: none;
+  padding: 0;
+}
+
+.list li img {
+  width: 50px; 
+  height: 50px;
+  display: block;
+  background: transparent;
+  border: none;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.5rem !important;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2.2rem !important;
+  }
+
+  .container, .second, .third {
+    background-attachment: scroll; /* Disable parallax on mobile for better performance */
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  /* Ensure .second and .third remain centered on mobile */
+  .second, .third {
+    background-position: center;
+  }
+
+  .conveyor-inner span {
+    font-size: 1rem !important;
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1.2rem !important;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .conveyor-inner span {
+    font-size: 0.8rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+}
